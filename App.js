@@ -5,6 +5,7 @@ import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, Linking, Ale
 export default function App() {
   return (
     <ImageBackground source={require('./images/back1.jpg')} style={styles.image}>
+      <StatusBar hidden = {true}/>
       <View style={styles.container}>
         <Text style = {styles.title}>Ne Okudum?</Text>
         <TouchableOpacity  style={styles.appButtonContainer}>
