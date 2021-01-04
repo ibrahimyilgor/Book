@@ -10,7 +10,7 @@ export default function MainScreen({navigation}) {
     <ImageBackground source={require('../images/back1.jpg')} style={styles.image}>
       <StatusBar hidden = {true}/>
       <View style={styles.container}>
-        <Text style = {styles.title}>Main Page?</Text>
+        <Text style = {styles.title}>Ana Sayfa</Text>
         <TouchableOpacity   onPress={() => navigation.navigate('KitapEkle')} style={styles.appButtonContainer}>
           <Text style={styles.appButtonText}>{"Kitap Ekle"}</Text>
         </TouchableOpacity>

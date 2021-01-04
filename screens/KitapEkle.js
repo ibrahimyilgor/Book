@@ -1,27 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, Linking, Alert} from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, TextInput, Linking, Alert} from 'react-native';
 
-export default function KitapEkleScreen() {
+export default function KitapEkleScreen({ navigation: { goBack } }) {
   return (
     <ImageBackground source={require('../images/back1.jpg')} style={styles.image}>
       <StatusBar hidden = {true}/>
       <View style={styles.container}>
-        <Text style = {styles.title}>KitapEkle</Text>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Kitap Ekle"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Kitaplarım"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"İstatistikler"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Ayarlar"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={ ()=> Linking.openURL('https://twitter.com/ibrahimyilgor')}>
-          <Text style={styles.contact}>{"@ibrahimyilgor"}</Text>
+        <Text style = {styles.title}>Kitap Ekle</Text>
+        <View style={styles.outer}>
+          <View style={styles.inner1}>
+            <Text style = {styles.text}>Ad</Text>
+            <Text style = {styles.text}>Yazar</Text>
+            <Text style = {styles.text}>Tür</Text>
+            <Text style = {styles.text}>Sayfa</Text>
+            <Text style = {styles.text}>Fiyat</Text>
+            <Text style = {styles.text}>Tarih</Text>
+          </View>
+          <View style={styles.inner2}>
+             <TextInput style={styles.textinput} />
+             <TextInput style={styles.textinput} />
+             <TextInput style={styles.textinput} />
+             <TextInput style={styles.textinput} />
+             <TextInput style={styles.textinput} />
+             <TextInput style={styles.textinput} />
+          </View>
+        </View>
+        <TouchableOpacity  onPress={() => goBack()} style={styles.appButtonContainer}>
+          <Text  style={styles.appButtonText}>{"Ekle"}</Text>
         </TouchableOpacity>
         <StatusBar style="auto" />
       </View>
@@ -35,16 +41,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#2b6684',
     alignItems: 'center',
     justifyContent: 'center',
-    width: "50%",
-    height: "50%"
+    width: "80%",
+    height: "60%"
   },
   appButtonContainer: {
     flexDirection: 'row',
     backgroundColor: "#9cacbf",
     borderRadius: 5,
     marginBottom: 5,
-    width: "90%",
-    height: "15%",
+    width: "60%",
+    height: "10%",
     justifyContent: "center",
     alignSelf: "center"
   },
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    marginBottom: 15,
+    marginBottom: 5,
     color: "#9cacbf",
     fontWeight: "bold",
     alignSelf: "center",
@@ -74,5 +80,35 @@ const styles = StyleSheet.create({
     color: "#9cacbf",
     fontWeight: "bold",
     alignSelf: "center",
-  } 
+  },
+  outer: { 
+    flexDirection: 'row',
+    height: "70%",
+  },
+  inner1: { 
+    marginRight: 10,
+    alignSelf: "center",
+    height: "95%",
+    width: "30%",
+  },
+  inner2: { 
+    alignSelf: "center",
+    height: "95%",
+    width: "65%",
+  },
+  textinput: { 
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 6,
+    backgroundColor: "#9cacbf",
+    color: "#032e42",
+    fontSize: 22
+  },
+  text: { 
+    fontSize: 16,
+    color: "#9cacbf",
+    fontWeight: "bold",
+    alignSelf: "center",
+    margin: 10.5,
+  },
 });
