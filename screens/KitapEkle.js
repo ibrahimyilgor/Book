@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: "80%",
-    height: "60%"
+    height: "65%"
   },
   appButtonContainer: {
     flexDirection: 'row',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    marginBottom: 5,
+    marginBottom: "1%",
     color: "#9cacbf",
     fontWeight: "bold",
     alignSelf: "center",
@@ -84,6 +84,8 @@ const styles = StyleSheet.create({
   outer: { 
     flexDirection: 'row',
     height: "70%",
+    
+    width: "100%",
   },
   inner1: { 
     marginRight: 10,
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
   textinput: { 
     borderWidth: 1,
     borderRadius: 5,
-    margin: 6,
+    margin: 6.5,
     backgroundColor: "#9cacbf",
     color: "#032e42",
     fontSize: 22
@@ -109,6 +111,6 @@ const styles = StyleSheet.create({
     color: "#9cacbf",
     fontWeight: "bold",
     alignSelf: "center",
-    margin: 10.5,
+    margin: 11,
   },
 });
