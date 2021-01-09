@@ -1,31 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, Linking, Alert} from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, Linking, FlatList} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import booklist from '../data.json'
 
 export default function KitaplarimScreen({navigation}) {
   return (
     <ImageBackground source={require('../images/back1.jpg')} style={styles.image}>
       <StatusBar hidden = {true}/>
       <View style={styles.container}>
-        <Text style = {styles.title}>Kitaplarim</Text>
-        <TouchableOpacity   onPress={() => navigation.navigate('KitapEkle')} style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Kitap Ekle"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Kitaplarım"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"İstatistikler"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{"Ayarlar"}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={ ()=> Linking.openURL('https://twitter.com/ibrahimyilgor')}>
-          <Text style={styles.contact}>{"@ibrahimyilgor"}</Text>
-        </TouchableOpacity>
+        <FlatList
+          data={booklist}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+            <View>
+              <Text style={styles.title}>{item.name}</Text>
+            </View>
+          }
+          keyExtractor={(item, index) => index.toString()}
+        />
         <StatusBar style="auto" />
       </View>
     </ImageBackground>
